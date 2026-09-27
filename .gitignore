@@ -2,6 +2,15 @@
 scratch/
 __pycache__/
 *.pyc
+tools/
+
+# Kullanılmayan taslak ve kopya dosyalar
+kurslar/kurs-sablonu.html
+kurslar/*-v2.html
+kurslar/*-v2-approved-ref.html
+assets/css/course-v2.css
+assets/css/course-v2-approved-ref.css
+assets/images/* - Kopya.*
 
 # Sistem dosyaları
 Thumbs.db
