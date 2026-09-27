@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+  <!-- Background with amber ring -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="#f59e0b" stroke-width="2.5"/>
+  
+  <!-- Safety Hard Hat Dome -->
+  <path d="M16 32 C16 19, 48 19, 48 32 Z" fill="url(#amberGrad)"/>
+  
+  <!-- Hard Hat Visor / Brim -->
+  <rect x="12" y="32" width="40" height="5" rx="2.5" fill="#f59e0b"/>
+  
+  <!-- Hard Hat Top Ridge -->
+  <path d="M30 19 L34 19 L35 32 L29 32 Z" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Shield Badge with Cross -->
+  <path d="M22 39 L42 39 L38 52 L32 55 L26 52 Z" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Safety Plus / Cross -->
+  <path d="M32 42 L32 51 M27 46.5 L37 46.5" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+</svg>

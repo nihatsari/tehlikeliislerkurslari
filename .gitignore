@@ -1,0 +1,9 @@
+# Geliştirme yardımcı betikleri (sitede yayınlanmasın)
+scratch/
+__pycache__/
+*.pyc
+
+# Sistem dosyaları
+Thumbs.db
+desktop.ini
+.DS_Store
