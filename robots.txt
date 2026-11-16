@@ -1,5 +1,9 @@
 ﻿User-agent: *
 Allow: /
+Disallow: /tools/
+Disallow: /scratch/
+Disallow: /kurslar/kurs-sablonu.html
+Disallow: /kurslar/*-v2*.html
 
 User-agent: GPTBot
 Allow: /
