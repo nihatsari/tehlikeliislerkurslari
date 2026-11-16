@@ -2090,3 +2090,27 @@ body .site-header .btn {
   white-space: nowrap;
   text-decoration: none;
 }
+
+/* Guide CTA High Contrast Rules (Overriding dark theme / course.css !important) */
+.guide-cta-card,
+body .guide-cta-card {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+  color: #FFFFFF !important;
+}
+
+.guide-cta-card h3,
+body .guide-cta-card h3 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.guide-cta-card p,
+body .guide-cta-card p {
+  color: #F8FAFC !important;
+  opacity: 0.95 !important;
+}
+
+.guide-cta-card .btn,
+body .guide-cta-card .btn {
+  color: #FFFFFF !important;
+}
