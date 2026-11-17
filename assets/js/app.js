@@ -167,3 +167,53 @@ function initModalInteractions() {
     }
   });
 }
+
+/* Google Ads & GA4 Dönüşüm Takibi (WhatsApp & Telefon Araması Tıklamaları) */
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('a');
+  if (!target) return;
+  const href = target.getAttribute('href') || '';
+
+  if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18578694080',
+          'event_category': 'engagement',
+          'event_label': 'WhatsApp Click'
+        });
+        gtag('event', 'contact', {
+          'method': 'WhatsApp'
+        });
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'whatsapp_click',
+        'link_url': href
+      });
+    } catch (err) {
+      console.error('Tracking error:', err);
+    }
+  } else if (href.startsWith('tel:')) {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18578694080',
+          'event_category': 'engagement',
+          'event_label': 'Phone Call Click'
+        });
+        gtag('event', 'contact', {
+          'method': 'Phone'
+        });
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'phone_call_click',
+        'phone_number': href
+      });
+    } catch (err) {
+      console.error('Tracking error:', err);
+    }
+  }
+});
+

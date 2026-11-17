@@ -23,6 +23,28 @@ function setupGoogleFormsHandler() {
     form.setAttribute('target', 'gform-hidden-iframe');
     
     form.addEventListener('submit', (e) => {
+      // Google Ads & GA4 Dönüşüm Takibi (Lead Form Gönderimi)
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18578694080',
+            'event_category': 'lead',
+            'event_label': 'Kurs Basvuru Formu'
+          });
+          gtag('event', 'generate_lead', {
+            'value': 2500,
+            'currency': 'TRY'
+          });
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'form_submission',
+          'form_name': 'Kurs Basvuru Formu'
+        });
+      } catch (err) {
+        console.error('Tracking error:', err);
+      }
+
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : 'Gönder';
       
