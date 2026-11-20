@@ -23,6 +23,20 @@ function setupGoogleFormsHandler() {
     form.setAttribute('target', 'gform-hidden-iframe');
     
     form.addEventListener('submit', (e) => {
+      // Google Forms kaynak etiketleme (kurs.tc form gelenlerini ayırt edebilmek için)
+      try {
+        const courseInput = form.querySelector('input[name="entry.2019287352"]');
+        if (courseInput && !courseInput.value.includes('(kurs.tc)')) {
+          courseInput.value = courseInput.value ? `${courseInput.value} (kurs.tc)` : 'Genel Başvuru (kurs.tc)';
+        }
+        const messageTextarea = form.querySelector('textarea');
+        if (messageTextarea && !messageTextarea.value.includes('(kurs.tc)')) {
+          messageTextarea.value = messageTextarea.value ? `${messageTextarea.value} (kurs.tc)` : '(kurs.tc)';
+        }
+      } catch (tagErr) {
+        console.warn('Form tag error:', tagErr);
+      }
+
       // Google Ads & GA4 Dönüşüm Takibi (Lead Form Gönderimi)
       try {
         if (typeof gtag === 'function') {
