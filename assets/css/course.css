@@ -867,12 +867,12 @@ body .wh-now-closed {
 
 /* 4.1 SIDEBAR FİYAT BANNERI */
 body .sidebar-price-banner {
-  background: #FFFFFF !important;
+  background: #F8FAFC !important;
   border: 1.5px solid #CBD5E1 !important;
   border-left: 4px solid var(--navy-primary) !important;
   border-radius: 12px !important;
-  padding: 1.15rem !important;
-  margin-bottom: 1.25rem !important;
+  padding: 1.15rem 1.25rem !important;
+  margin-bottom: 1.5rem !important;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
 }
 
@@ -881,9 +881,9 @@ body .sb-price-header {
   flex-direction: column !important;
   align-items: flex-start !important;
   gap: 0.45rem !important;
-  margin-bottom: 0.75rem !important;
-  padding-bottom: 0.75rem !important;
-  border-bottom: 1px dashed #E2E8F0 !important;
+  margin-bottom: 0.65rem !important;
+  padding-bottom: 0.65rem !important;
+  border-bottom: 1px dashed #CBD5E1 !important;
 }
 
 body .sb-price-label {
@@ -924,21 +924,72 @@ body .sb-price-val small {
   display: inline-block !important;
 }
 
-/* 4.2 "ÖZEL FIRSAT" KAMPANYA KUTUSU */
+/* 4.2 "ÖZEL FIRSAT" KAMPANYA ALANI (İç Kutu Çakışması Önleyici Sade Tasarım) */
 body .sb-campaign-box {
-  background: #F8FAFC !important;
-  border: 1px solid #E2E8F0 !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 0.85rem !important;
-  color: #1E293B !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0.35rem 0 0 0 !important;
+  color: #334155 !important;
   font-size: 0.875rem !important; /* 14px */
-  line-height: 1.55 !important;
+  line-height: 1.5 !important;
   margin-top: 0 !important;
 }
 
 body .sb-campaign-box strong {
   color: var(--navy-primary) !important;
   font-weight: 800 !important;
+}
+
+/* WhatsApp CTA & Ayırıcı */
+.sidebar-wa-container {
+  margin-top: 0.85rem;
+}
+
+.form-divider-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #94A3B8;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0.85rem 0;
+}
+
+.form-divider-text::before,
+.form-divider-text::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1.5px solid #E2E8F0;
+}
+
+.form-divider-text span {
+  padding: 0 0.75rem;
+}
+
+body .btn-whatsapp-cta {
+  background: #25D366 !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 1rem !important;
+  height: 52px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28) !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+}
+
+body .btn-whatsapp-cta:hover {
+  background: #1EBE5D !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.38) !important;
+  color: #FFFFFF !important;
 }
 
 /* Form Alanları (Lighthouse: Minimum 48px Yükseklik & 16px Font) */

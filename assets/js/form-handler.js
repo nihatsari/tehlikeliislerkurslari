@@ -1,15 +1,118 @@
-// Form işleme ve asenkron veri aktarımı
+// Form işleme, dinamik WhatsApp yönlendirme ve asenkron veri aktarımı
 
 document.addEventListener('DOMContentLoaded', () => {
   setupGoogleFormsHandler();
+  optimizeFormFields();
+  injectSidebarWhatsAppCTA();
+  setupDynamicWhatsApp();
 });
 
+// 1. Formları hafiflet: E-posta ve Doğum Yılı alanlarını gizle, zorunluluğu kaldır
+function optimizeFormFields() {
+  const forms = document.querySelectorAll('form[data-headless-form="true"]');
+  forms.forEach(form => {
+    // E-Posta alanını gizle ve varsayılan değer ver
+    const emailInput = form.querySelector('input[type="email"], input[name="entry.746511830"]');
+    if (emailInput) {
+      emailInput.removeAttribute('required');
+      if (!emailInput.value) emailInput.value = 'bilgi@kurs.tc';
+      const fg = emailInput.closest('.form-group');
+      if (fg) fg.style.display = 'none';
+    }
+
+    // Doğum Yılı alanını gizle ve varsayılan değer ver
+    const birthInput = form.querySelector('input[name="entry.1360886086"]');
+    if (birthInput) {
+      birthInput.removeAttribute('required');
+      if (!birthInput.value) birthInput.value = '1990';
+      const fg = birthInput.closest('.form-group');
+      if (fg) fg.style.display = 'none';
+    }
+  });
+}
+
+// 2. Kurs sayfalarındaki formun içine alternatif WhatsApp butonu ekle
+function injectSidebarWhatsAppCTA() {
+  const courseForms = document.querySelectorAll('#kayit-formu, .sticky-reg-card form');
+  courseForms.forEach(form => {
+    if (form.querySelector('.sidebar-wa-container')) return;
+
+    const waContainer = document.createElement('div');
+    waContainer.className = 'sidebar-wa-container';
+    waContainer.innerHTML = `
+      <div class="form-divider-text"><span>VEYA</span></div>
+      <a href="https://wa.me/905445098606" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-cta sidebar-wa-btn" aria-label="WhatsApp ile Hemen Bilgi Alın">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>WhatsApp ile Hızlı Başvur</span>
+      </a>
+    `;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn && submitBtn.nextSibling) {
+      submitBtn.parentNode.insertBefore(waContainer, submitBtn.nextSibling);
+    } else {
+      form.appendChild(waContainer);
+    }
+  });
+}
+
+// 3. WhatsApp başvuru mesajını bulunulan kurs sayfasına göre dinamik özelleştir
+function setupDynamicWhatsApp() {
+  const phone = '905445098606';
+  let courseTitle = '';
+
+  const courseInput = document.querySelector('input[name="entry.2019287352"]');
+  const h1 = document.querySelector('h1');
+
+  if (courseInput && courseInput.value && !courseInput.value.includes('İletişim') && !courseInput.value.includes('Genel')) {
+    courseTitle = courseInput.value.replace(/\(kurs\.tc\)/g, '').trim();
+  } else if (h1) {
+    courseTitle = h1.textContent.trim().replace(/\s+/g, ' ');
+  }
+
+  const isHome = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+  let defaultMessage = 'Merhaba, kurs.tc üzerinden ağır ve tehlikeli işler eğitimi ve sertifikası hakkında bilgi almak için yazmıştım.';
+  if (courseTitle && !isHome) {
+    defaultMessage = `Merhaba, ${courseTitle} hakkında bilgi ve kayıt için yazmıştım.`;
+  }
+
+  const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(defaultMessage)}`;
+
+  // Sayfadaki tüm WhatsApp butonlarını bu dinamik URL ile güncelle ve dönüşüm takibi ekle
+  document.querySelectorAll('a[href*="wa.me"], .btn-whatsapp, .sidebar-wa-btn, a[data-whatsapp="true"]').forEach(btn => {
+    btn.href = waUrl;
+    btn.addEventListener('click', () => {
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18578694080',
+            'event_category': 'whatsapp',
+            'event_label': courseTitle || 'Genel WhatsApp'
+          });
+          gtag('event', 'generate_lead', {
+            'value': 2500,
+            'currency': 'TRY'
+          });
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'whatsapp_click',
+          'course_name': courseTitle || 'Genel'
+        });
+      } catch (err) {
+        console.warn('WhatsApp tracking error:', err);
+      }
+    });
+  });
+}
+
+// 4. Headless Google Forms gönderim motoru
 function setupGoogleFormsHandler() {
   const forms = document.querySelectorAll('form[data-headless-form="true"]');
-  
   if (forms.length === 0) return;
 
-  // Gizli iframe oluştur (CORS engeline takılmadan Google Form'a POST etmek için en güvenli yöntem)
   let hiddenIframe = document.getElementById('gform-hidden-iframe');
   if (!hiddenIframe) {
     hiddenIframe = document.createElement('iframe');
@@ -23,7 +126,7 @@ function setupGoogleFormsHandler() {
     form.setAttribute('target', 'gform-hidden-iframe');
     
     form.addEventListener('submit', (e) => {
-      // Google Forms kaynak etiketleme (kurs.tc form gelenlerini ayırt edebilmek için)
+      // Google Forms kaynak etiketleme (kurs.tc takibi)
       try {
         const courseInput = form.querySelector('input[name="entry.2019287352"]');
         if (courseInput && !courseInput.value.includes('(kurs.tc)')) {
@@ -62,7 +165,6 @@ function setupGoogleFormsHandler() {
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : 'Gönder';
       
-      // Buton yükleniyor durumuna geçer
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
@@ -74,7 +176,6 @@ function setupGoogleFormsHandler() {
         `;
       }
 
-      // 600ms sonra formu temizle ve kullanıcıya tebrik bildirimini göster
       setTimeout(() => {
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -84,7 +185,6 @@ function setupGoogleFormsHandler() {
         const fullName = form.querySelector('input[name="entry.1633062460"]')?.value || 'Değerli Kursiyerimiz';
         form.reset();
 
-        // Eğer modal içerisindeki formsa modalı kapat
         if (typeof window.closeCourseModal === 'function') {
           window.closeCourseModal();
         }
@@ -101,7 +201,7 @@ function setupGoogleFormsHandler() {
   });
 }
 
-// Bildirim kutusu kontrolü
+// 5. Toast Bildirim Kutusu
 let toastTimer = null;
 
 function showToast(title, message) {
@@ -137,7 +237,6 @@ function showToast(title, message) {
       if (toastTimer) clearTimeout(toastTimer);
     });
 
-    // Kullanıcı okurken üzerine gelirse (hover) zamanlayıcıyı duraklat
     toast.addEventListener('mouseenter', () => {
       if (toastTimer) clearTimeout(toastTimer);
     });
@@ -166,13 +265,12 @@ function showToast(title, message) {
 
   toast.classList.add('show');
 
-  // Kullanıcı rahatça okuyabilsin diye 10 saniye (10000ms) açık tut
   toastTimer = setTimeout(() => {
     toast.classList.remove('show');
   }, 10000);
 }
 
-// Global modal açıcı (Hızlı başvuru butonları için)
+// 6. Global Modal İşlemleri
 window.openCourseModal = function(courseName) {
   const modal = document.getElementById('courseModal');
   if (!modal) return;
@@ -187,7 +285,6 @@ window.openCourseModal = function(courseName) {
     courseBadge.textContent = courseName;
   }
 
-  // Dinamik kontenjanı seçilen kursa göre güncelle
   if (typeof window.updateModalCourseQuota === 'function' && courseName) {
     window.updateModalCourseQuota(courseName);
   }
