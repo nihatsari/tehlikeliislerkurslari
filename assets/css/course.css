@@ -496,7 +496,7 @@ body .pricing-amount {
   line-height: 1 !important;
 }
 
-/* KDV Dahil & Sınav Dahil Rozeti */
+/* KDV Dahil & Ek Ücret Yok Rozeti */
 body .pricing-badge {
   background: #DCFCE7 !important;
   color: #14532D !important;
@@ -687,6 +687,7 @@ body .sticky-reg-card {
   border-radius: 16px !important;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
   overflow: hidden !important;
+  padding: 0 !important;
   padding-bottom: 1.5rem !important;
 }
 
@@ -695,6 +696,21 @@ body .reg-card-header {
   color: #FFFFFF !important;
   padding: 1.5rem !important;
   text-align: center !important;
+  margin-bottom: 1.25rem !important;
+}
+
+/* Form ve iç kutular için 20px iç boşluk (Kenarlara sıfır temas & taşma önleyici) */
+body .sticky-reg-card .quota-box,
+body .sticky-reg-card .working-hours-status,
+body .sticky-reg-card .sidebar-price-banner {
+  margin-left: 1.25rem !important;
+  margin-right: 1.25rem !important;
+}
+
+body .sticky-reg-card form {
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  scroll-margin-top: 85px !important;
 }
 
 body .card-badge {

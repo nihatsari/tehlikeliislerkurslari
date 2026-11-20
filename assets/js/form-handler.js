@@ -124,7 +124,7 @@ function setupGoogleFormsHandler() {
 
   forms.forEach(form => {
     form.setAttribute('target', 'gform-hidden-iframe');
-    
+
     form.addEventListener('submit', (e) => {
       // Google Forms kaynak etiketleme (kurs.tc takibi)
       try {
@@ -164,7 +164,7 @@ function setupGoogleFormsHandler() {
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : 'Gönder';
-      
+
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
@@ -181,14 +181,14 @@ function setupGoogleFormsHandler() {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
         }
-        
+
         const fullName = form.querySelector('input[name="entry.1633062460"]')?.value || 'Değerli Kursiyerimiz';
         form.reset();
 
         if (typeof window.closeCourseModal === 'function') {
           window.closeCourseModal();
         }
-        
+
         const whInfo = typeof window.getWorkingHoursInfo === 'function' ? window.getWorkingHoursInfo() : null;
         const callInfo = whInfo ? (whInfo.isOpen ? 'Mesai saatleri içerisindeyiz; eğitim danışmanımız hemen sizinle iletişime geçecektir.' : `${whInfo.nextCallText}`) : 'En kısa sürede sizinle iletişime geçilecektir.';
 
@@ -271,13 +271,13 @@ function showToast(title, message) {
 }
 
 // 6. Global Modal İşlemleri
-window.openCourseModal = function(courseName) {
+window.openCourseModal = function (courseName) {
   const modal = document.getElementById('courseModal');
   if (!modal) return;
-  
+
   const courseInput = modal.querySelector('input[name="entry.2019287352"]');
   const courseBadge = modal.querySelector('#modalCourseNameBadge');
-  
+
   if (courseInput && courseName) {
     courseInput.value = courseName;
   }
@@ -288,11 +288,11 @@ window.openCourseModal = function(courseName) {
   if (typeof window.updateModalCourseQuota === 'function' && courseName) {
     window.updateModalCourseQuota(courseName);
   }
-  
+
   modal.style.display = 'flex';
 };
 
-window.closeCourseModal = function() {
+window.closeCourseModal = function () {
   const modal = document.getElementById('courseModal');
   if (modal) modal.style.display = 'none';
 };

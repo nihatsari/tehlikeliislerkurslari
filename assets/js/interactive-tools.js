@@ -224,7 +224,7 @@ function initEvergreenSchedule() {
 
   // 1. Dönem Sayacı Başlıklarını Güncelle
   document.querySelectorAll('.donem-sayaci-baslik').forEach(el => {
-    el.textContent = `${year} / ${weekNumber}. Sınav Dönem Kontenjanı`;
+    el.textContent = `${year} / ${weekNumber}. Kayıt Dönemi Kontenjanı`;
   });
 
   // 2. Sayfadaki Tüm Kontenjan Durum Kutularını Otomatik Güncelle

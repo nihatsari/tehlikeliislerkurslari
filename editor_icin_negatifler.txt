@@ -1,0 +1,73 @@
+Kampanya	Anahtar kelime
+kurs.tc - 01 Insaat ve Yapi Isleri	öğrenme
+kurs.tc - 01 Insaat ve Yapi Isleri	öğrenmek
+kurs.tc - 01 Insaat ve Yapi Isleri	"öğrenme kursu"
+kurs.tc - 01 Insaat ve Yapi Isleri	"nasıl öğrenilir"
+kurs.tc - 01 Insaat ve Yapi Isleri	"kaç yıl geçerli"
+kurs.tc - 01 Insaat ve Yapi Isleri	"geçerlilik süresi"
+kurs.tc - 01 Insaat ve Yapi Isleri	"kaç metre"
+kurs.tc - 01 Insaat ve Yapi Isleri	"yazılı sınav"
+kurs.tc - 01 Insaat ve Yapi Isleri	"sınav soruları"
+kurs.tc - 01 Insaat ve Yapi Isleri	"çıkmış sorular"
+kurs.tc - 01 Insaat ve Yapi Isleri	"e devletten nasıl"
+kurs.tc - 01 Insaat ve Yapi Isleri	"e devlette görünür mü"
+kurs.tc - 01 Insaat ve Yapi Isleri	"global kaynak okulu"
+kurs.tc - 01 Insaat ve Yapi Isleri	komek
+kurs.tc - 01 Insaat ve Yapi Isleri	ismek
+kurs.tc - 01 Insaat ve Yapi Isleri	busmek
+kurs.tc - 01 Insaat ve Yapi Isleri	ücretsiz
+kurs.tc - 01 Insaat ve Yapi Isleri	bedava
+kurs.tc - 02 Metal ve Imalat Sanayi	öğrenme
+kurs.tc - 02 Metal ve Imalat Sanayi	öğrenmek
+kurs.tc - 02 Metal ve Imalat Sanayi	"öğrenme kursu"
+kurs.tc - 02 Metal ve Imalat Sanayi	"nasıl öğrenilir"
+kurs.tc - 02 Metal ve Imalat Sanayi	"kaç yıl geçerli"
+kurs.tc - 02 Metal ve Imalat Sanayi	"geçerlilik süresi"
+kurs.tc - 02 Metal ve Imalat Sanayi	"kaç metre"
+kurs.tc - 02 Metal ve Imalat Sanayi	"yazılı sınav"
+kurs.tc - 02 Metal ve Imalat Sanayi	"sınav soruları"
+kurs.tc - 02 Metal ve Imalat Sanayi	"çıkmış sorular"
+kurs.tc - 02 Metal ve Imalat Sanayi	"e devletten nasıl"
+kurs.tc - 02 Metal ve Imalat Sanayi	"e devlette görünür mü"
+kurs.tc - 02 Metal ve Imalat Sanayi	"global kaynak okulu"
+kurs.tc - 02 Metal ve Imalat Sanayi	komek
+kurs.tc - 02 Metal ve Imalat Sanayi	ismek
+kurs.tc - 02 Metal ve Imalat Sanayi	busmek
+kurs.tc - 02 Metal ve Imalat Sanayi	ücretsiz
+kurs.tc - 02 Metal ve Imalat Sanayi	bedava
+kurs.tc - 03 Vinc ve Is Makineleri	öğrenme
+kurs.tc - 03 Vinc ve Is Makineleri	öğrenmek
+kurs.tc - 03 Vinc ve Is Makineleri	"öğrenme kursu"
+kurs.tc - 03 Vinc ve Is Makineleri	"nasıl öğrenilir"
+kurs.tc - 03 Vinc ve Is Makineleri	"kaç yıl geçerli"
+kurs.tc - 03 Vinc ve Is Makineleri	"geçerlilik süresi"
+kurs.tc - 03 Vinc ve Is Makineleri	"kaç metre"
+kurs.tc - 03 Vinc ve Is Makineleri	"yazılı sınav"
+kurs.tc - 03 Vinc ve Is Makineleri	"sınav soruları"
+kurs.tc - 03 Vinc ve Is Makineleri	"çıkmış sorular"
+kurs.tc - 03 Vinc ve Is Makineleri	"e devletten nasıl"
+kurs.tc - 03 Vinc ve Is Makineleri	"e devlette görünür mü"
+kurs.tc - 03 Vinc ve Is Makineleri	"global kaynak okulu"
+kurs.tc - 03 Vinc ve Is Makineleri	komek
+kurs.tc - 03 Vinc ve Is Makineleri	ismek
+kurs.tc - 03 Vinc ve Is Makineleri	busmek
+kurs.tc - 03 Vinc ve Is Makineleri	ücretsiz
+kurs.tc - 03 Vinc ve Is Makineleri	bedava
+kurs.tc - 04 Elektrik ve Otomasyon	öğrenme
+kurs.tc - 04 Elektrik ve Otomasyon	öğrenmek
+kurs.tc - 04 Elektrik ve Otomasyon	"öğrenme kursu"
+kurs.tc - 04 Elektrik ve Otomasyon	"nasıl öğrenilir"
+kurs.tc - 04 Elektrik ve Otomasyon	"kaç yıl geçerli"
+kurs.tc - 04 Elektrik ve Otomasyon	"geçerlilik süresi"
+kurs.tc - 04 Elektrik ve Otomasyon	"kaç metre"
+kurs.tc - 04 Elektrik ve Otomasyon	"yazılı sınav"
+kurs.tc - 04 Elektrik ve Otomasyon	"sınav soruları"
+kurs.tc - 04 Elektrik ve Otomasyon	"çıkmış sorular"
+kurs.tc - 04 Elektrik ve Otomasyon	"e devletten nasıl"
+kurs.tc - 04 Elektrik ve Otomasyon	"e devlette görünür mü"
+kurs.tc - 04 Elektrik ve Otomasyon	"global kaynak okulu"
+kurs.tc - 04 Elektrik ve Otomasyon	komek
+kurs.tc - 04 Elektrik ve Otomasyon	ismek
+kurs.tc - 04 Elektrik ve Otomasyon	busmek
+kurs.tc - 04 Elektrik ve Otomasyon	ücretsiz
+kurs.tc - 04 Elektrik ve Otomasyon	bedava
