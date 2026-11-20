@@ -699,17 +699,17 @@ body .reg-card-header {
   margin-bottom: 1.25rem !important;
 }
 
-/* Form ve iç kutular için 20px iç boşluk (Kenarlara sıfır temas & taşma önleyici) */
+/* Form ve iç kutular için dengeli 16px (1rem) iç boşluk (Taşma önleyici & kompakt) */
 body .sticky-reg-card .quota-box,
 body .sticky-reg-card .working-hours-status,
 body .sticky-reg-card .sidebar-price-banner {
-  margin-left: 1.25rem !important;
-  margin-right: 1.25rem !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
 }
 
 body .sticky-reg-card form {
-  padding-left: 1.25rem !important;
-  padding-right: 1.25rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
   scroll-margin-top: 85px !important;
 }
 
