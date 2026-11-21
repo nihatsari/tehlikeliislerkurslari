@@ -64,7 +64,7 @@ function initCourseFiltering() {
       const category = card.getAttribute('data-category') || '';
       const title = card.querySelector('.course-title')?.textContent.toLowerCase() || '';
       const desc = card.querySelector('.course-desc')?.textContent.toLowerCase() || '';
-      
+
       const matchesCategory = (activeCategory === 'all' || category === activeCategory);
       const matchesSearch = !isSearching || (title.includes(searchTerm) || desc.includes(searchTerm));
 

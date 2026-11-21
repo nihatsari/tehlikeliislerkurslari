@@ -1201,6 +1201,11 @@ img {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   /* Prevent iOS zoom on inputs */
   input, select, textarea, .form-control {
     font-size: 16px !important;
@@ -1210,16 +1215,48 @@ img {
     display: none;
   }
   
-  .navbar {
-    height: 68px;
+  .navbar,
+  .site-header .navbar {
+    height: 62px;
+  }
+
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-logo {
+    gap: 0.5rem;
   }
 
   .brand-title {
-    font-size: 1.05rem;
+    font-size: 0.92rem;
+    line-height: 1.15;
   }
 
   .brand-title span {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-actions .btn,
+  .nav-actions .btn-sm,
+  body .nav-actions .btn,
+  body .nav-actions .btn-sm,
+  body .site-header .btn {
+    display: inline-flex !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0 0.65rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
   }
 
   .nav-menu {
@@ -1228,12 +1265,13 @@ img {
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-subtle);
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border-subtle, #E2E8F0);
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
-    box-shadow: var(--shadow-lg);
+    padding: 1.25rem 1rem;
+    gap: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    z-index: 999;
   }
 
   .nav-menu.open {
@@ -1241,15 +1279,15 @@ img {
   }
 
   .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-  }
-
-  .nav-actions .btn-sm {
-    display: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
   }
 
   /* Horizontal swipeable category pills on mobile */
@@ -2008,35 +2046,35 @@ img {
   box-shadow: 0 4px 10px rgba(217, 119, 6, 0.35) !important;
 }
 
-/* Header Action Button Perfect Sizing */
-.nav-actions {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  flex-shrink: 0 !important;
-}
-
-.nav-actions .btn,
-.nav-actions .btn-sm,
-body .nav-actions .btn,
-body .nav-actions .btn-sm,
-body .site-header .btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 42px !important;
-  min-height: 42px !important;
-  max-height: 42px !important;
-  padding: 0 1.25rem !important;
-  font-size: 0.9rem !important;
-  font-weight: 700 !important;
-  border-radius: 8px !important;
-  white-space: nowrap !important;
-  line-height: 1 !important;
-  box-sizing: border-box !important;
-}
-
 @media (min-width: 1025px) {
+  /* Header Action Button Perfect Sizing */
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-actions .btn,
+  .nav-actions .btn-sm,
+  body .nav-actions .btn,
+  body .nav-actions .btn-sm,
+  body .site-header .btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    padding: 0 1.25rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+  }
+
   .nav-menu {
     display: flex;
     align-items: center;
