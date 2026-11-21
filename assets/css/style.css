@@ -1200,28 +1200,6 @@ img {
   .nav-actions .btn-sm { display: none; }
 }
 
-@media (max-width: 1024px) {
-  /* Mobile Navbar & Controls */
-  .navbar { height: 68px; }
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #FFFFFF;
-    border-bottom: 1px solid #E2E8F0;
-    flex-direction: column;
-    padding: 1.25rem;
-    gap: 0.75rem;
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-  .nav-menu.open { display: flex; }
-  .mobile-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
-  .nav-actions .btn-sm { display: none; }
-}
-
 @media (max-width: 768px) {
   /* Prevent iOS zoom on inputs */
   input, select, textarea, .form-control {
@@ -2058,26 +2036,28 @@ body .site-header .btn {
   box-sizing: border-box !important;
 }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 1.75rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+@media (min-width: 1025px) {
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-.nav-link {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #1E293B;
-  padding: 0.5rem 0.25rem;
-  position: relative;
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  text-decoration: none;
+  .nav-link {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1E293B;
+    padding: 0.5rem 0.25rem;
+    position: relative;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
+  }
 }
 
 /* Guide CTA High Contrast Rules (Overriding dark theme / course.css !important) */

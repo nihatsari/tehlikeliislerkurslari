@@ -13,7 +13,8 @@ function initMobileNav() {
   const navMenu = document.querySelector('.nav-menu');
 
   if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       navMenu.classList.toggle('open');
       const isOpen = navMenu.classList.contains('open');
       toggleBtn.setAttribute('aria-expanded', isOpen);
@@ -23,7 +24,16 @@ function initMobileNav() {
     document.addEventListener('click', (e) => {
       if (!toggleBtn.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
       }
+    });
+
+    // Menü içindeki bir bağlantıya tıklandığında menüyü kapat
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 }
